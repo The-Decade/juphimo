@@ -14,8 +14,40 @@ const categoryData: Record<string, {
 }> = {
   'Blue-Collar': {
     tagline: "Skilled Craftsmen for Every Project",
-    desc: "Skip the lengthy hiring process and get reliable, pre-screened blue-collar talent delivered to your worksite faster, saving you time and money while ensuring the job gets done right.",
-    features: ["Electricians", "Plumbers", "Welders", "Truck Drivers", "Carpenters", "Industrial Machinery Mechanics", "Power Line Installers", "Quantity Surveyors", "Mechanical engineers", "Solar technician", "Builders", "And more..."]
+    desc: "Connect with experienced blue-collar professionals who bring craftsmanship, reliability, and expertise to every job. Our pre-screened talent is ready to deliver quality work on time, every time.",
+    features: ["Electricians", "Plumbers", "Welders", "Truck Drivers", "Carpenters", "Industrial Machinery Mechanics", "Power Line Installers", "Quantity Surveyors", "Mechanical engineers", "Solar technician", "Builders", "And more..."],
+    roles: [
+      {
+        title: "Electricians & Power Line Installers",
+        description: "Licensed electricians and power line specialists to handle installations, repairs, maintenance, and electrical system upgrades safely and efficiently.",
+        image: "https://images.pexels.com/photos/5691618/pexels-photo-5691618.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      {
+        title: "Plumbers & Pipe Fitters",
+        description: "Experienced plumbing professionals for installations, repairs, drainage systems, and water supply maintenance in residential and commercial properties.",
+        image: "https://images.pexels.com/photos/8486921/pexels-photo-8486921.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      {
+        title: "Welders & Metal Workers",
+        description: "Certified welders skilled in various welding techniques for construction, manufacturing, fabrication, and industrial metalwork projects.",
+        image: "https://images.pexels.com/photos/1474993/pexels-photo-1474993.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      {
+        title: "Carpenters & Builders",
+        description: "Skilled carpenters and construction workers for framing, finishing, cabinetry, and general construction projects of all scales.",
+        image: "https://images.pexels.com/photos/5691543/pexels-photo-5691543.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      {
+        title: "Mechanical & Industrial Technicians",
+        description: "Trained mechanics and industrial machinery specialists for equipment maintenance, repair, installation, and troubleshooting.",
+        image: "https://images.pexels.com/photos/3807571/pexels-photo-3807571.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      {
+        title: "Solar Technicians & Quantity Surveyors",
+        description: "Specialized professionals for renewable energy installations, project cost estimation, and construction project management.",
+        image: "https://images.pexels.com/photos/9875417/pexels-photo-9875417.jpeg?auto=compress&cs=tinysrgb&w=800"
+      }
+    ]
   },
   'Domestic': {
     tagline: "Trusted Household Professionals",
@@ -71,7 +103,14 @@ export default function ServiceCategoryPage({ category }: { category: string }) 
 
   if (!data) return <div className="category-page"><h2>Category Not Found</h2></div>;
 
-  if (category === 'White-Collar' && data.roles) {
+  if ((category === 'White-Collar' || category === 'Blue-Collar') && data.roles) {
+    const ctaTitle = category === 'White-Collar'
+      ? "Ready to Find Your Perfect Professional Match?"
+      : "Ready to Build Your Project with Skilled Craftsmen?";
+    const ctaDescription = category === 'White-Collar'
+      ? "Contact us today and let us connect you with pre-screened, qualified talent that fits your needs."
+      : "Contact us today and let us connect you with experienced, pre-vetted blue-collar professionals ready to deliver quality results.";
+
     return (
       <div className="modern-service-page">
         <div className="service-hero">
@@ -99,8 +138,8 @@ export default function ServiceCategoryPage({ category }: { category: string }) 
 
         <div className="cta-section">
           <div className="cta-content">
-            <h2>Ready to Find Your Perfect Professional Match?</h2>
-            <p>Contact us today and let us connect you with pre-screened, qualified talent that fits your needs.</p>
+            <h2>{ctaTitle}</h2>
+            <p>{ctaDescription}</p>
             <div className="cta-buttons">
               <a href="#contact" className="cta-btn primary">Get Started</a>
               <a href="tel:+263782326442" className="cta-btn secondary">Call Us Now</a>

@@ -2,9 +2,9 @@ import '../../styles/components.css'; // Assuming your styles are here
 
 export default function ServicesGallery() {
   const galleryItems = [
-    { title: "Care givers", img: "/images/caregiver (1).jpg", alt: "care giving" },
+    { title: "Care givers", img: "https://images.pexels.com/photos/7551659/pexels-photo-7551659.jpeg?auto=compress&cs=tinysrgb&w=400", alt: "care giving" },
     { title: "Cleaners", img: "/images/cleaners.jpg", alt: "cleaning" },
-    { title: "Dog groomers", img: "/images/dog groomer.jpeg", alt: "dog grooming" }, // Updated path to match uploaded files
+    { title: "Dog groomers", img: "/images/dog groomer.jpeg", alt: "dog grooming" },
     { title: "Waiters & waitresses", img: "/images/waitress.jpg", alt: "waiters" },
     { title: "Chefs", img: "/images/chef.jpg", alt: "chefs" },
     { title: "Child minders", img: "/images/childnanny.jpg", alt: "child minders" },
